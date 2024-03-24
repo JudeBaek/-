@@ -1,0 +1,119 @@
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 대시보드 전체 레이아웃 */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    background-color: #333;
+    width: 200px;
+    padding: 1em;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    padding: 0.5em;
+    color: white;
+    text-decoration: none;
+}
+
+.menu-item.selected,
+.menu-item:hover {
+    background-color: #565656;
+}
+
+/* 메인 컨텐츠 내 섹션들을 상하로 나열 */
+.main-content {
+    display: flex;
+    flex-direction: column; /* 상하 나열 */
+}
+
+.video-list-section,
+.top-videos-section {
+    margin: 1em 0;
+}
+
+/* 메인 컨텐츠 스타일 */
+.main-content {
+    flex-grow: 1;
+    padding: 1em;
+    background-color: #f0f0f0;
+}
+
+.video-list-section,
+.top-videos-section {
+    flex-basis: 50%; /* 두 섹션을 좌우로 분할 */
+}
+
+.video-list,
+.top-videos {
+    background-color: white;
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.video-entry {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.5em 0;
+}
+
+.thumbnail img{
+    max-width: 10px; /* 썸네일 크기 */
+    margin-right: 1em;
+}
+
+.channel-profile{
+    max-width: 10px;
+    margin-right: 1em;
+}
+
+
+.title {
+    flex-grow: 1;
+}
+
+.views, .likes, .comments, .upload-date {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 768px) {
+    .video-list-section,
+    .top-videos-section {
+        flex-basis: 100%; /* 모바일에서는 섹션을 상하로 분할 */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%; /* 모바일에서는 사이드바를 전체 너비로 */
+        padding: 0.5em;
+    }
+
+    .menu-item {
+        text-align: center; /* 사이드바 메뉴 항목을 중앙으로 정렬 */
+    }
+
+   /* 이미지가 너무 클 경우 추가 조정이 필요할 수 있음 */
+    .thumbnail img {
+        max-width: 40px; /* 이미지 최대 너비를 줄임 */
+        height: auto; /* 높이는 자동으로 설정되어 비율이 유지됨 */
+    }
+}

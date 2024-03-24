@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Traffic Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style></style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <ul class="menu">
+                <li class="menu-item selected"><a href="/youtube_traffic">YouTube Traffic</a></li>
+                <li class="menu-item"><a href="/news_traffic">News Traffic</a></li>
+                <li class="menu-item"><a href="/add_channel">Add Channel</a></li>
+                <li class="menu-item"><a href="/youtube_manage">YouTube Manage</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <!-- 최신 영상 리스트 섹션 -->
+            <section class="video-list-section">
+                <h2>Latest Videos</h2>
+                <!-- 여기에 최신 영상 리스트 -->
+                <div class="video-list">
+                    {% for video in latest_videos %}
+                    <div class="video-entry">
+                        <div class="thumbnail">
+                            <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+                        </div>
+                        <div class="title">{{ video.title }}</div>
+                        <div class="views">{{ video.views }}</div>
+                        <div class="likes">{{ video.likes }}</div>
+                        <div class="comments">{{ video.comments }}</div>
+                        <div class="upload-date">{{ video.upload_date }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- Top 10 영상 리스트 섹션 -->
+            <section class="top-videos-section">
+                <h2>Top 10 Videos</h2>
+                <!-- 여기에 Top 10 영상 리스트 -->
+                <div class="top-videos">
+                    {% for video in top_videos %}
+                    <div class="video-entry">
+                        <div class="thumbnail">
+                            <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+                        </div>
+                        <div class="title">{{ video.title }}</div>
+                        <div class="views">{{ video.views }}</div>
+                        <div class="likes">{{ video.likes }}</div>
+                        <div class="comments">{{ video.comments }}</div>
+                        <div class="upload-date">{{ video.upload_date }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
